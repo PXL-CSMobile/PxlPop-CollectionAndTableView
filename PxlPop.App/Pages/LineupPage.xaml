@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PxlPop.App.Pages.LineupPage"
+             Title="LineupPage">
+    <Shell.TitleView>
+        <Label Text="Line-up" Style="{StaticResource ShellTitle}"></Label>
+    </Shell.TitleView>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Picker Title="Selecteer departement" Margin="30">
+            <Picker.ItemsSource>
+                <x:Array Type="{x:Type x:String}">
+                    <x:String>Business</x:String>
+                    <x:String>Education</x:String>
+                    <x:String>Healthcare</x:String>
+                    <x:String>Digital</x:String>
+                    <x:String>Media &amp; Tourism</x:String>
+                    <x:String>People &amp; Society</x:String>
+                    <x:String>Green &amp; Tech</x:String>
+                    <x:String>Music</x:String>
+                    <x:String>MAD</x:String>
+                </x:Array>
+            </Picker.ItemsSource>
+        </Picker>
+        <ScrollView Grid.Row="1">
+            <VerticalStackLayout Style="{StaticResource PageLayout}" >
+                <Label FontAttributes="Italic" TextColor="{StaticResource Gray300}" Text="Hier komt later een CollectionView"/>
+            </VerticalStackLayout>
+        </ScrollView>
+    </Grid>
+</ContentPage>

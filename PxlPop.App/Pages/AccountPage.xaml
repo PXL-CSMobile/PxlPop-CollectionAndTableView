@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PxlPop.App.Pages.AccountPage"
+             Title="Account"
+             Appearing="OnPageAppearing">
+    <Shell.TitleView>
+        <Label Text="Account" Style="{StaticResource ShellTitle}"></Label>
+    </Shell.TitleView>
+    <VerticalStackLayout Style="{StaticResource PageLayout}">
+        <Grid>
+            <Label Text="Enable dark mode" 
+                   HorizontalOptions="Start" 
+                   VerticalOptions="Center"/>
+            <Switch x:Name="darkThemeSwitch" 
+                    HorizontalOptions="End"
+                    VerticalOptions="Center"
+                    OnColor="{StaticResource Primary}" 
+                    Toggled="OnDarkModeToggled"/>
+        </Grid>
+    </VerticalStackLayout>
+</ContentPage>
