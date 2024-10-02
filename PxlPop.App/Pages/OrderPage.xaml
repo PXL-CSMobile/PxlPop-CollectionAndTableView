@@ -36,7 +36,7 @@
                 </Entry.Behaviors>
             </Entry>
             <HorizontalStackLayout>
-                <CheckBox x:Name="viaEmailCheckBox" IsChecked="False"/>
+                <CheckBox x:Name="viaEmailCheckBox" IsChecked="False" CheckedChanged="OnEmailCheckedChanged"/>
                 <Label Text="Verstuur tickets via email" TextColor="Green" VerticalOptions="Center"/>
             </HorizontalStackLayout>
 
