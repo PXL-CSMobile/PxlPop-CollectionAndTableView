@@ -1,3 +1,7 @@
+using CommunityToolkit.Maui.Alerts;
+using CommunityToolkit.Maui.Core;
+using System.Threading;
+
 namespace PxlPop.App.Pages;
 
 public partial class AccountPage : ContentPage
@@ -9,7 +13,7 @@ public partial class AccountPage : ContentPage
 
 	private void OnDarkModeToggled(object sender, ToggledEventArgs e)
 	{
-		if (darkThemeSwitch.IsToggled)
+		if (e.Value)
 		{
 			Application.Current!.UserAppTheme = AppTheme.Dark;
 		}
@@ -19,15 +23,26 @@ public partial class AccountPage : ContentPage
 		}
 	}
 
+    private async void OnNotificationsToggled(object sender, ToggledEventArgs e)
+    {
+        string text = "Nieuwe instellingen werden toegepast";
+        ToastDuration duration = ToastDuration.Short;
+        double fontSize = 12;
+
+        var toast = Toast.Make(text, duration, fontSize);
+
+        await toast.Show();
+    }
+
     private void OnPageAppearing(object sender, EventArgs e)
     {
 		switch(Application.Current!.UserAppTheme)
 		{
 			case AppTheme.Dark:
-				darkThemeSwitch.IsToggled = true; 
+                darkThemeSwitch.On = true; 
 				break;
 			default:
-				darkThemeSwitch.IsToggled = false;
+				darkThemeSwitch.On = false;
 				break;
 		}
     }

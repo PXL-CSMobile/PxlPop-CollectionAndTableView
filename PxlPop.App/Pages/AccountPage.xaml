@@ -7,16 +7,34 @@
     <Shell.TitleView>
         <Label Text="Account" Style="{StaticResource ShellTitle}"></Label>
     </Shell.TitleView>
-    <VerticalStackLayout Style="{StaticResource PageLayout}">
-        <Grid>
-            <Label Text="Enable dark mode" 
-                   HorizontalOptions="Start" 
-                   VerticalOptions="Center"/>
-            <Switch x:Name="darkThemeSwitch" 
-                    HorizontalOptions="End"
-                    VerticalOptions="Center"
-                    OnColor="{StaticResource Primary}" 
-                    Toggled="OnDarkModeToggled"/>
-        </Grid>
-    </VerticalStackLayout>
+    <TableView HasUnevenRows="True" Intent="Data">
+        <TableRoot>
+            <TableSection Title="Account">
+                <EntryCell Label="Gebruikersnaam"/>
+            </TableSection>
+            <TableSection Title="Weergave">
+                <SwitchCell Text="Enable dark mode" 
+                            x:Name="darkThemeSwitch" 
+                            OnChanged="OnDarkModeToggled"
+                            OnColor="{StaticResource Primary}" />
+                <ViewCell>
+                    <Grid Padding="15" ColumnDefinitions="*,Auto">
+                        <Label Text="Taal" Grid.Column="0" VerticalOptions="Center"/>
+                        <Picker SelectedIndex="0" Grid.Column="1" MinimumWidthRequest="100">
+                            <Picker.Items>
+                                <x:String>Nederlands</x:String>
+                                <x:String>English</x:String>
+                            </Picker.Items>
+                        </Picker>
+                    </Grid>
+                </ViewCell>
+            </TableSection>
+            <TableSection Title="Meldingen">
+                <SwitchCell Text="Meldingen toestaan" 
+                            x:Name="notificationsSwitch" 
+                            OnChanged="OnNotificationsToggled"
+                            OnColor="{StaticResource Primary}" />
+            </TableSection>
+        </TableRoot>
+    </TableView>
 </ContentPage>
