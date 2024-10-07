@@ -20,7 +20,7 @@ Optioneel kan je een tweede CollectionView toevoegen aan de *FavouritesPage*.
 - Gerbuik [grouped data](https://learn.microsoft.com/en-us/dotnet/maui/user-interface/controls/collectionview/grouping?view=net-maui-8.0) om de lessen weer te geven per dag
 - Werk met [alternating rows](https://blog.verslu.is/stackoverflow-answers/alternate-row-color-listview/)
 
-- <img src="media/lineupcollectionview.png" height="600">
+<img src="media/lineupcollectionview.png" height="600">
 
 ## AcountPage
 - Vervang de bestaande LayoutView door een TableView
