@@ -14,7 +14,7 @@
         </Grid.RowDefinitions>
         <ActivityIndicator Grid.RowSpan="2" x:Name="indicator"
                            Color="{StaticResource Primary}" />
-        <Picker Title="Selecteer departement" Margin="15 30" x:Name="departmentPicker" SelectedIndexChanged="OnDepartmentChanged">
+        <Picker Title="Selecteer departement" Margin="15,30" x:Name="departmentPicker" SelectedIndexChanged="OnDepartmentChanged">
             <Picker.ItemsSource>
                 <x:Array Type="{x:Type x:String}">
                     <x:String>Business</x:String>
@@ -47,33 +47,35 @@
             </CollectionView.GroupFooterTemplate>
             <CollectionView.ItemTemplate>
                 <DataTemplate>
-                    <VerticalStackLayout>
-                        <Grid RowSpacing="15" ColumnSpacing="15">
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="Auto"/>
-                                <ColumnDefinition Width="*"/>
-                            </Grid.ColumnDefinitions>
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="*"/>
-                                <RowDefinition Height="*"/>
-                                <RowDefinition Height="*"/>
-                            </Grid.RowDefinitions>
+                    <Grid RowSpacing="15" ColumnSpacing="15">
+                        <Grid.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnTapGestureRecognizerTapped"
+                              NumberOfTapsRequired="2" CommandParameter="{Binding Description}"/>
 
-                            <VerticalStackLayout Grid.RowSpan="2" VerticalOptions="Center">
-                                <Label Text="{Binding Begin, StringFormat='{0:HH}'}" FontFamily="Helvetica" 
-                                    FontSize="Large" HorizontalOptions="Center"/>
-                                <Label Text="{Binding Begin, StringFormat='{0:mm}'}" FontFamily="Helvetica" 
-                                    FontSize="Large" HorizontalOptions="Center"/>
-                            </VerticalStackLayout>
+                        </Grid.GestureRecognizers>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
 
-                            <Label Text="{Binding Name}" Style="{StaticResource Title}" FontSize="16"
-                                   Grid.Column="1" VerticalOptions="Center" HorizontalOptions="Center"/>
-                            <Label Text="{Binding Lecturers}"
-                                   Grid.Row="1" Grid.Column="1" HorizontalOptions="Center" VerticalOptions="Start"/>
-                            
-                        </Grid>
-                        
-                    </VerticalStackLayout>
+                        <VerticalStackLayout Grid.RowSpan="2" VerticalOptions="Center">
+                            <Label Text="{Binding Begin, StringFormat='{0:HH}'}" FontFamily="Helvetica" 
+                                        FontSize="Large" HorizontalOptions="Center"/>
+                            <Label Text="{Binding Begin, StringFormat='{0:mm}'}" FontFamily="Helvetica" 
+                                        FontSize="Large" HorizontalOptions="Center"/>
+                        </VerticalStackLayout>
+
+                        <Label Text="{Binding Name}" Style="{StaticResource Title}" FontSize="16"
+                                       Grid.Column="1" VerticalOptions="Center" HorizontalOptions="Center"/>
+                        <Label Text="{Binding Lecturers}"
+                                       Grid.Row="1" Grid.Column="1" HorizontalOptions="Center" VerticalOptions="Start"/>
+
+                    </Grid>
                 </DataTemplate>
             </CollectionView.ItemTemplate>
         </CollectionView>
